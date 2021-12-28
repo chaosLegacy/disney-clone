@@ -1,10 +1,10 @@
 import React from 'react'
-import styles from '../styles/Auth.module.css';
+import styles from '../styles/Auth.module.scss';
 
 const Auth = () => {
     return (
         <>
-            <section className={styles.container}>
+            <section className={styles.Auth}>
                 <div className={styles.content}>
                     <div className={styles.wrap}>
                         <img src="/images/cta-logo-one.svg" alt="logo" className={styles.logo} />
