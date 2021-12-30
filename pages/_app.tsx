@@ -9,6 +9,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../lib/firebase';
 import { useEffect } from 'react';
 import { AuthUserProvider } from '../context/AuthUserContext';
+import Header from '../components/Header';
 
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -21,6 +22,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Provider store={store} >
       <AuthUserProvider>
+        <Header />
         <Component {...pageProps} />
       </AuthUserProvider>
     </Provider >

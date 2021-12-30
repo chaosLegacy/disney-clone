@@ -4,11 +4,11 @@ import { State } from "../types";
 const initialState: State = {
     error: '',
     user: null,
-    movie: {
-        recommend: null,
-        newDisney: null,
-        original: null,
-        trending: null
+    movies: {
+        recommend: [],
+        newDisney: [],
+        original: [],
+        trending: []
     }
 };
 
@@ -21,10 +21,10 @@ export const { actions, reducer } = createSlice({
     reducers: {
         set: (state, action) => ({ ...state, ...action.payload }),
         setMovies: (state, action) => {
-            state.movie.recommend = action.payload.recommend;
-            state.movie.newDisney = action.payload.newDisney;
-            state.movie.original = action.payload.original;
-            state.movie.trending = action.payload.trending;
+            state.movies.recommend = action.payload.recommend;
+            state.movies.newDisney = action.payload.newDisney;
+            state.movies.original = action.payload.original;
+            state.movies.trending = action.payload.trending;
         },
     }
 });

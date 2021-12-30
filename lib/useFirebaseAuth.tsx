@@ -1,8 +1,9 @@
+import { signInWithPopup } from 'firebase/auth';
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { actions } from '../redux/reducer';
 import { User } from '../types';
-import { auth } from './firebase';
+import { auth, googleProvider } from './firebase';
 
 const formatAuthUser = (user: User) => ({
     uid: user.uid,
@@ -42,6 +43,15 @@ const useFirebaseAuth = () => {
 
         dispatch(actions.set({ user: null }));
     }
+
+    const googleSignIn = async () => {
+        try {
+            await signInWithPopup(auth, googleProvider);
+
+        } catch (error) {
+            console.log('error: ', error);
+        }
+    }
     // listen for Firebase state change
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(authStateChanged);
@@ -51,7 +61,8 @@ const useFirebaseAuth = () => {
     return {
         authUser,
         loading,
-        signOut
+        signOut,
+        googleSignIn
     };
 }
 

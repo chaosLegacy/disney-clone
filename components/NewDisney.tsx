@@ -1,22 +1,28 @@
-import React from 'react';
-import styles from './NewDisney.module.scss';
+import React from 'react'
 import Link from 'next/link';
+import styles from './Section.module.scss';
+import { useSelector } from '../redux/store';
+import { MovieData } from '../types';
 
 const NewDisney = () => {
-    const movies: Array<any> = []; //TODO add redux to fetch
+    const { movies } = useSelector(state => state);
+    const { newDisney } = movies;
     return (
-        <section className={styles.NewDisney}>
+        <section className={styles.Section} id='section-2'>
             <h4>New to Disney+</h4>
             <div className={styles.content}>
-                {movies &&
-                    movies.map((movie, key) => (
-                        <div className={styles.wrap} key={key}>
-                            {movie.id}
-                            <Link href={`/detail/` + movie.id}>
-                                <img src={movie.cardImg} alt={movie.title} />
-                            </Link>
-                        </div>
-                    ))}
+                {
+                    newDisney.length && (
+                        newDisney.map((movie: MovieData, key) => (
+                            <div key={key} className={styles.wrap}>
+                                {movie.id}
+                                <Link href={`/details/` + movie.id}>
+                                    <img src={movie.cardImg} alt={movie.title} />
+                                </Link>
+                            </div>
+                        ))
+                    )
+                }
             </div>
         </section>
     )

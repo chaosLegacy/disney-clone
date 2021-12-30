@@ -69,8 +69,8 @@
                 letter-spacing: 1.8px;
                 text-align: center;
                 text-transform: uppercase;
-                background: rgb (249, 249, 249);
                 border: none;
+                background: rgb (249, 249, 249);
                 color: rgb(0, 0, 0);
 
                 img {
@@ -87,12 +87,6 @@
                         width: 25px;
                     }
                 }
-            }
-
-            .trailer {
-                background: rgba(0, 0, 0, 0.3);
-                border: 1px solid rgb(249, 249, 249);
-                color: rgb(249, 249, 249);
             }
 
             .addList {
@@ -170,5 +164,45 @@
                 font-size: 14px;
             }
         }
+    }
+
+    .visible {
+        visibility: visible;
+        opacity: 1;
+        transition: opacity 1s linear;
+    }
+
+    .hidden {
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0s 1s, opacity 1s linear;
+    }
+
+    .fadeOut {
+        -webkit-animation: fadeOut 2s;
+        animation: fadeOut 2s;
+        animation-fill-mode: forwards;
+    }
+
+    .backgroundVideo {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        z-index: -1;
+        background-size: cover;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
     }
 }

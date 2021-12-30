@@ -4,7 +4,8 @@ import useFirebaseAuth from '../lib/useFirebaseAuth';
 const authUserContext = createContext({
     authUser: null,
     loading: true,
-    signOut: async () => { }
+    signOut: async () => { },
+    googleSignIn: async () => { },
 });
 
 export function AuthUserProvider({ children }: { children: any }) {

@@ -1,19 +1,19 @@
-import React from 'react';
 import Link from 'next/link';
-import styles from './Section.module.scss';
+import React from 'react'
 import { useSelector } from '../redux/store';
 import { MovieData } from '../types';
+import styles from './Section.module.scss';
 
-const Recommends = () => {
+const Trending = () => {
     const { movies } = useSelector(state => state);
-    const { recommend } = movies;
+    const { trending } = movies;
     return (
-        <section className={styles.Section} id='section-1'>
-            <h4>Recommended for You</h4>
+        <section className={styles.Section} id='section-4'>
+            <h4>Trending</h4>
             <div className={styles.content}>
                 {
-                    recommend.length && (
-                        recommend.map((movie: MovieData, key) => (
+                    trending.length && (
+                        trending.map((movie: MovieData, key) => (
                             <div key={key} className={styles.wrap}>
                                 {movie.id}
                                 <Link href={`/details/` + movie.id}>
@@ -28,4 +28,4 @@ const Recommends = () => {
     )
 }
 
-export default Recommends
+export default Trending
