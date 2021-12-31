@@ -25,15 +25,15 @@ export type youtubeThumbnails = {
     }
 }
 export type youtubeSnippet = {
-    publishedAt: string;
-    channelId: string;
+    publishedAt?: string;
+    channelId?: string;
     videoId: string;
-    title: string;
-    description: string;
-    thumbnails: youtubeThumbnails;
-    channelTitle: string;
-    liveBroadcastContent: string;
-    publishTime: string;
+    title?: string;
+    description?: string;
+    thumbnails?: youtubeThumbnails;
+    channelTitle?: string;
+    liveBroadcastContent?: string;
+    publishTime?: string;
 }
 
 export type MovieData = {
@@ -45,6 +45,7 @@ export type MovieData = {
     title: string;
     titleImg: string;
     type: 'new' | 'recommend' | 'trending' | 'original';
+    trailer: youtubeSnippet
 }
 
 export type Movies = {
@@ -57,5 +58,6 @@ export type Movies = {
 export type State = {
     error: string;
     user: null | User;
-    movies: Movies
+    movies: Movies,
+    movieDetail: MovieData
 }

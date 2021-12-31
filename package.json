@@ -5,7 +5,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "export": "next export",
+    "lint": "next lint",
+    "deploy:firebase": "firebase deploy --only hosting"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.7.1",

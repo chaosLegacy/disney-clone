@@ -9,7 +9,8 @@ const initialState: State = {
         newDisney: [],
         original: [],
         trending: []
-    }
+    },
+    movieDetail: null
 };
 
 
